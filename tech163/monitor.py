@@ -65,7 +65,6 @@ class MongoPipeline(object):
         self.mongo_db = mongo_db
         self.mongo_collection = mongo_collection
 
-
     def conn_mongodb(self):
         self.client = pymongo.MongoClient(self.mongo_uri)
         self.db = self.client[self.mongo_db]
@@ -84,7 +83,7 @@ if __name__ == '__main__':
 
     while True:
         link_seen = start_request(link_seen)
-        time.sleep(20)
+        time.sleep(20)  #每20秒发出请求，监控最新新闻
 
 
 

@@ -9,7 +9,7 @@ from scrapy.spiders import Spider, Request
 class A163Spider(Spider):
     name = 'news'
     allowed_domains = ['http://snapshot.news.163.com', 'tech.163.com']
-    startYear = '2014'
+    startYear = '2014'    #最早只能查询到2014.3.22的新闻
     startMonth = '03'
     startDay = '22'
     dtnow = datetime.datetime.now()
@@ -29,6 +29,7 @@ class A163Spider(Spider):
         Year = response.meta['Year']
         Month = response.meta['Month']
         Day = response.meta['Day']
+        #转换为时间类型自增
         s = '{}-{}-{}'.format(Year, Month, Day)
         dt = datetime.datetime.strptime(s, '%Y-%m-%d')
         dt = dt + datetime.timedelta(days=1)
@@ -42,12 +43,12 @@ class A163Spider(Spider):
     def parse_news(self, response):
         item = Tech163Item()
         thread_pat = re.compile('.*?(\w+).html')
-        item['news_thread'] = re.match(thread_pat, response.url).groups(1)[0]
+        item['news_thread'] = re.match(thread_pat, response.url).groups(1)[0]   #新闻id
         item['news_title'] = response.css('.post_content_main h1::text').extract_first()
         item['news_url'] = response.url
         item['news_time'] = response.css('.post_time_source::text').extract_first().strip()[:-4]
-        item['news_from'] = response.css('.post_time_source a::text').extract_first()
-        item['from_url'] = response.css('.left a::attr(href)').extract_first()
+        item['news_from'] = response.css('.post_time_source a::text').extract_first()   #新闻来源
+        item['from_url'] = response.css('.left a::attr(href)').extract_first()  #来源网站
         item['news_content'] = response.css('#endText p::text').extract()
 
         return item

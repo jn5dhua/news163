@@ -12,10 +12,3 @@ class RandomUserAgentMiddleware():
         agent = random.choice(AGENTS)
         request.headers.setdefault('User-Agent', agent)
 
-
-# class ProxyMiddleware():
-#     # 动态设置ip代理
-#     def process_request(self, request, spider):
-#         get_ip = GetIP()
-#         proxy = get_ip.get_random_ip()
-#         request.meta["proxy"] = proxy

@@ -90,6 +90,6 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-MONGO_URI = '127.0.0.1'
+MONGO_URI = '127.0.0.1'      #本地Mongodb ip
 MONGO_DATABASE = 'news163'
 MONGO_COLLECTION = 'tech163'
