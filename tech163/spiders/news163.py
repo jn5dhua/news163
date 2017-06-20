@@ -13,7 +13,7 @@ class A163Spider(Spider):
     startMonth = '03'
     startDay = '22'
     dtnow = datetime.datetime.now()
-    api_news_url = 'http://snapshot.news.163.com/wgethtml/http+!!tech.163.com!special!00094IHV!news_json.js/{}-{}/{}/0.js?0.357977020453387'
+    api_news_url = 'http://snapshot.news.163.com/wgethtml/http+!!tech.163.com!special!00094IHV!news_json.js/{}-{}/{}/0.js?0.3010325175788171'
     link_pat = re.compile(r'http://tech.163.com/\d+/\d+/\d+/\w+\.html')
 
     def start_requests(self):
