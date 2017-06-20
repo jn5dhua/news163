@@ -2,7 +2,7 @@
 Scrapy+Mongodb抓取网易新闻科技频道下历史新闻(2014.3.22 - )，并实现实时监控抓取最新新闻，可复用网易新闻下其他频道新闻
 
 ## 科技频道滚动新闻地址 http://tech.163.com/latest 
-网易滚动新闻网页能够查询到网易的历史新闻和新发布的新闻。可通过分析"往期回顾"的Ajax请求得到api地址，api地址具有时效性
+网易滚动能够查询到历史新闻和新发布的新闻。可通过分析"往期回顾"的Ajax请求得到api地址，api地址具有时效性
 
 eg: http://snapshot.news.163.com/wgethtml/http+!!tech.163.com!special!00094IHV!news_json.js/2017-06/02/0.js?0.3010325175788171
 
